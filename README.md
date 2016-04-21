@@ -10,3 +10,6 @@ Kaj bo aplikacija dejansko počela (npr.) :
 * iskanje sadja, ki ima manj kot 50 kcal
 * 3 najbolj kalorične hrane razvrščene od najbolj navzdol...
 * ipd..
+
+Source:
+*http://www.novafeel.com/calories/calorie-chart-vegetables.htm
