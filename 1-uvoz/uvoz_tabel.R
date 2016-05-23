@@ -44,5 +44,8 @@ write.table(pijaca,file="pijaca.csv",sep=";")
 
 hrana <- rbind(mlecni_izdelki, meso, ribe, zita, zelenjava, sadje, pijaca)
 hrana$Enota <- c(rep("100g", 177))
+hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", 39),rep("pijaca", 11))
 write.table(hrana,file="hrana.csv",sep=";")
-colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Enota")
+rownames(hrana)<-c(1:177)
+colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Enota", "Kategorija")
+
