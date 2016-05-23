@@ -12,4 +12,4 @@ Kaj bo aplikacija dejansko počela (npr.) :
 * ipd..
 
 Source:
-*http://www.novafeel.com/calories/calorie-chart-vegetables.htm
+http://www.zdravobitje.si/hranilne-kaloricne-vrednosti-zivil/
