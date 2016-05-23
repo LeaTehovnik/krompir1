@@ -1,0 +1,1 @@
+priprava za bazo
