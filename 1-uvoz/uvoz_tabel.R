@@ -49,3 +49,6 @@ write.table(hrana,file="hrana.csv",sep=";")
 rownames(hrana)<-c(1:177)
 colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Enota", "Kategorija")
 
+kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sadje", "pijaca")
+id <- c(1:length(kategorije_hrane))
+kategorije <- data.frame(id,kategorije_hrane)
