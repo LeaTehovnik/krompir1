@@ -41,7 +41,8 @@ create_table <- function(){
     
     #Glavne tabele
     hrana <- dbSendQuery(conn,build_sql("CREATE TABLE hrana (
-                                         ime SERIAL PRIMARY KEY,
+                                         id SERIAL PRIMARY KEY,
+                                         ime TEXT UNIQUE,
                                          kcal INTEGER,
                                          voda INTEGER,
                                          beljakovine INTEGER,
@@ -56,7 +57,8 @@ create_table <- function(){
                                           )"))
     
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
-                                            ime SERIAL PRIMARY KEY,
+                                            id SERIAL PRIMARY KEY,
+                                            ime TEXT UNIQUE,
                                             sestavine TEXT NOT NULL,
                                             postopek)"))  #NI PRAV
     
@@ -72,15 +74,16 @@ create_table <- function(){
 
 #Uvoz podatkov
 #1. hrana
-hrana<-read.csv("2-Podatki/hrana.csv",fileEncoding = "Windows-1250")
+hrana<-read.csv2("2-Podatki/hrana.csv",fileEncoding = "Windows-1250", na.strings = c("sl,","–"))
 
 #2. vsi kontinenti
-kategorija <- read.csv("2-Podatki/kategorija.csv",fileEncoding = "Windows-1250")
+kategorija <- read.csv2("2-Podatki/kategorija.csv",fileEncoding = "Windows-1250")
 
 #3. recept
-recept<-read.csv("2-Podatki/recept.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
+recept<-read.csv2("2-Podatki/recept.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
 
-
+hrana <- hrana %>% inner_join(kategorija, by = c("Kategorija" = "kategorije_hrane")) %>%
+  mutate(kategorija = id) %>% select(-Kategorija, -id)
 
 
 #Funcija, ki vstavi podatke
