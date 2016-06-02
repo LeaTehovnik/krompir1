@@ -13,6 +13,11 @@ r <- append(r, rep("Piščančji casserole", 10))
 s <- append(s, c("Piščanec, belo meso", "Makaroni", "Brokoli", "Olje", "Grah, zrnje", "Čebula, bela", "Origano", "Sol", "Poper", "Sir, edamec"))
 kolicina <- append(kolicina, c("4 večji fileji", "250 g", "1 glavica", "5 žlic", "50 g", "1", "1 žlica", "2 ščepca", "1 ščepec", "200 g"))
 
+# Pečene sardele
+r <- append(r, rep("Pečene sardele", 5))
+s <- append(s, c("Sardela", "Sol", "Pšenična m., bela", "Olje", "Limona"))
+kolicina <- append(kolicina, c("1 kg", "1 žlička", "150g", "0,5dl", "1"))
+
 
 potrebujemo <- data.frame(r, s, kolicina)
 colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
