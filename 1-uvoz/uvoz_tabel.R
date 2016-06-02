@@ -72,3 +72,4 @@ kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sa
 id <- c(1:length(kategorije_hrane))
 kategorija <- data.frame(id,kategorije_hrane)
 write.table(kategorija,file="kategorija.csv",sep=";")
+

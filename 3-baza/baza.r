@@ -41,7 +41,7 @@ create_table <- function(){
     
     #Glavne tabele
     hrana <- dbSendQuery(conn,build_sql("CREATE TABLE hrana (
-                                         ime SERIAL PRIMARY KEY,
+                                         ime SERIAL PRIMARY KEY UNIQUE,
                                          kcal INTEGER,
                                          voda INTEGER,
                                          beljakovine INTEGER,
@@ -58,9 +58,16 @@ create_table <- function(){
     dbSendQuery(conn, build_sql("GRANT SELECT ON kategorija TO javnost"))
     
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
-                                            ime SERIAL PRIMARY KEY,
-                                            sestavine TEXT NOT NULL,
-                                            postopek)"))  #NI PRAV
+                                            ime SERIAL PRIMARY KEY UNIQUE,
+                                            postopek TEXT NOT NULL)"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
+    
+    
+    potrebujemo <- dbSendQuery(conn,build_sql("CREATE TABLE potrebujemo (
+                                            ime_recepta TEXT REFRENCES recept(ime),
+                                            sestavine TEXT REFRENCES hrana(ime),
+                                            kolicina INTEGER NOT NULL,
+                                            PRIMARY KEY(ime_recepta, sestavine))"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
     
     ##dodati moramo še foreign key
