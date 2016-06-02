@@ -1,7 +1,7 @@
 # Neposredno klicanje SQL ukazov v R
 library(dplyr)
 library(RPostgreSQL)
-#source("2.Uvoz/Uvoz.R")
+
 source("1-uvoz/uvoz_tabel.R")
 #source("2-podatki/hrana.R")
 source("3-baza/auth.R")
@@ -20,6 +20,7 @@ delete_table <- function(){
     dbSendQuery(conn,build_sql("DROP TABLE IF EXISTS hrana"))
     dbSendQuery(conn,build_sql("DROP TABLE IF EXISTS kategorija"))
     dbSendQuery(conn,build_sql("DROP TABLE IF EXISTS recept"))
+    dbSendQuery(conn,build_sql("DROP TABLE IF EXISTS potrebujemo"))
 
     
     
@@ -103,7 +104,8 @@ insert_data <- function(){
     
     dbWriteTable(conn, name="hrana", hrana, append=T, row.names=FALSE)
     dbWriteTable(conn, name="kategorija",kategorija,append=T, row.names=FALSE)
-    dbWriteTable(conn, name="recept", recept, append=T, row.names=FALSE) 
+    dbWriteTable(conn, name="recept", recept, append=T, row.names=FALSE)
+    dbWriteTable(conn, name="potrebujemo", potrebujemo, append=T, row.names=FALSE)
     
   }, finally = {
     dbDisconnect(conn) 
