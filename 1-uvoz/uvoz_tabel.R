@@ -1,4 +1,6 @@
 library(XML)
+library(gsubfn)
+library(dplyr)
 theurl <- "http://www.zdravobitje.si/hranilne-kaloricne-vrednosti-zivil/"
 
 #skupna tabela
@@ -9,47 +11,63 @@ tables <- readHTMLTable(theurl)
 mlecni_izdelki <- tables[[1]]
 mlecni_izdelki <- mlecni_izdelki[-1,]
 write.table(mlecni_izdelki,file="mlecni_izdelki.csv",sep=";")
-#colnames(mlecni_izdelki) <- c("Mleko in izdelki", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
 
 
 meso <- tables[[2]]
 meso <- meso[-1,]
 write.table(meso,file="meso.csv",sep=";")
-#colnames(meso) <- c("Meso", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
 
 ribe <- tables[[3]]
 ribe <- ribe[-1,]
 write.table(ribe,file="ribe.csv",sep=";")
-#colnames(ribe) <- c("Ribe", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
 
 zita <- tables[[4]]
 zita <- zita[-1,]
 write.table(zita,file="zita.csv",sep=";")
-#colnames(zita) <- c("Zita", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
 
 zelenjava <- tables[[5]]
 zelenjava <- zelenjava[-1,]
 write.table(zelenjava,file="zelenjava.csv",sep=";")
-#colnames(zelenjava) <- c("Zelenjava", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
 
 sadje <- tables[[6]]
 sadje <- sadje[-1,]
 write.table(sadje,file="sadje.csv",sep=";")
-#colnames(sadje) <- c("Sadje", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
 
 pijaca <- tables[[7]]
 pijaca <- pijaca[-1,]
 write.table(pijaca,file="pijaca.csv",sep=";")
-#colnames(pijaca) <- c("Pijaca", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+
+
+ime<-c("Jajca", "Voda","Olje","Kvas","Sol","Kis, balzamični","Poper", "Origano")
+kalorije<-c(143,0,884, 295,0,88,255,306)
+voda<-c(0,100,0, 7.6,0,76.45,10.51,7.16)
+beljakovine<-c(12.58,0,0,38.3,0,0.49,10.95, 11)
+mascobe<-c(9.94,0,0,4.6,0,0,3.26, 10.25)
+holesterol<-c(423,0,0,0,0,0,0,0)
+ogljikovi<-c(0.77,0,0,38.2,0,17.03,64.81,64.43)
+
+ostalo<-data.frame(ime,kalorije, voda, beljakovine, mascobe, holesterol, ogljikovi)
+#colnames(ostalo) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7")
+
 
 hrana <- rbind(mlecni_izdelki, meso, ribe, zita, zelenjava, sadje, pijaca)
-hrana$Enota <- c(rep("100g", 177))
-hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", 39),rep("pijaca", 11))
+hrana$V5 %>% strapplyc("([0-9,]{2,})")
+
+hrana$V1 <- as.character(hrana$V1)
+ostalo$V1 <- as.character(ostalo$V1)
+hrana <- rbind(hrana, ostalo)
+#hrana$Enota <- c(rep("100g", 177))
+hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", 39),rep("pijaca", 11), rep("ostalo",8))
 write.table(hrana,file="hrana.csv",sep=";")
 rownames(hrana)<-c(1:177)
 colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Enota", "Kategorija")
 
-kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sadje", "pijaca")
+kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sadje", "pijaca", "ostalo")
 id <- c(1:length(kategorije_hrane))
 kategorija <- data.frame(id,kategorije_hrane)
 write.table(kategorija,file="kategorija.csv",sep=";")
