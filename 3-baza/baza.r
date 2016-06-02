@@ -63,6 +63,8 @@ create_table <- function(){
                                             postopek)"))  #NI PRAV
     dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
     
+    ##dodati moramo še foreign key
+    
    
     
   }, finally = {
@@ -77,7 +79,7 @@ create_table <- function(){
 #1. hrana
 hrana<-read.csv("2-Podatki/hrana.csv",fileEncoding = "Windows-1250")
 
-#2. vsi kontinenti
+#2. kategorija
 kategorija <- read.csv("2-Podatki/kategorija.csv",fileEncoding = "Windows-1250")
 
 #3. recept
