@@ -1,0 +1,18 @@
+# Kuhan krompir v oblicah
+r <- rep("Kuhan krompir v oblicah", 3)
+s <- c("Krompir", "olje", "sol")
+kolicina <- c("1 kg", "20 g", "3 ščepce")
+
+#Stročji fižol s paradižniki
+r <- append(r, rep("Stročji fižol s paradižniki", 9))
+s <- append(s, c("Fižol, sveži", "Paradižnik", "Čebula, bela", "Česen", "Peteršilj", "Olje", "Kis, balzamični", "Sol", "Poper"))
+kolicina <- append(kolicina, c("300 g", "150 g", "1", "2 stroka", "4 vejice", "3 žlice", "2 žlici", "2 ščepca", "1 ščepec"))
+
+# Piščančji casserole
+r <- append(r, rep("Piščančji casserole", 10))
+s <- append(s, c("Piščanec, belo meso", "Makaroni", "Brokoli", "Olje", "Grah, zrnje", "Čebula, bela", "Origano", "Sol", "Poper", "Sir, edamec"))
+kolicina <- append(kolicina, c("4 večji fileji", "250 g", "1 glavica", "5 žlic", "50 g", "1", "1 žlica", "2 ščepca", "1 ščepec", "200 g"))
+
+
+potrebujemo <- data.frame(r, s, kolicina)
+colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
