@@ -52,20 +52,21 @@ holesterol<-c(423,0,0,0,0,0,0,0)
 ogljikovi<-c(0.77,0,0,38.2,0,17.03,64.81,64.43)
 
 ostalo<-data.frame(ime,kalorije, voda, beljakovine, mascobe, holesterol, ogljikovi)
-#colnames(ostalo) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7")
+colnames(ostalo) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7")
 
 
 hrana <- rbind(mlecni_izdelki, meso, ribe, zita, zelenjava, sadje, pijaca)
-hrana$V5 %>% strapplyc("([0-9,]{2,})")
-
-hrana$V1 <- as.character(hrana$V1)
-ostalo$V1 <- as.character(ostalo$V1)
+hrana <- data.frame(hrana$V1,
+                    sapply(2:7, . %>% {hrana[[.]]} %>% as.character() %>% strapplyc("([0-9,]+)") %>%
+                             sapply(paste, collapse = "") %>% {gsub(",", ".", .)}  %>% {gsub("^[.]$", "", .)} %>%
+                             as.numeric()))
+names(hrana) <- paste0("V", 1:7)
 hrana <- rbind(hrana, ostalo)
 #hrana$Enota <- c(rep("100g", 177))
 hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", 39),rep("pijaca", 11), rep("ostalo",8))
 write.table(hrana,file="hrana.csv",sep=";")
-rownames(hrana)<-c(1:177)
-colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Enota", "Kategorija")
+rownames(hrana)<-c(1:185)
+colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)", "Kategorija")
 
 kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sadje", "pijaca", "ostalo")
 id <- c(1:length(kategorije_hrane))
