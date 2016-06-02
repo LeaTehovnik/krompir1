@@ -49,16 +49,21 @@ create_table <- function(){
                                          holesterol INTEGER,
                                          ogljikovi_hidrati INTEGER,
                                          enota INTEGER NOT NULL)"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON hrana TO javnost"))
     
     kategorija <- dbSendQuery(conn,build_sql("CREATE TABLE kategorija (
                                           id TEXT PRIMARY KEY NOT NULL,
                                           kategorija_hrane TEXT NOT NULL,
                                           )"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON kategorija TO javnost"))
     
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
                                             ime SERIAL PRIMARY KEY,
                                             sestavine TEXT NOT NULL,
                                             postopek)"))  #NI PRAV
+    dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
+    
+    ##dodati moramo še foreign key
     
    
     
@@ -74,7 +79,7 @@ create_table <- function(){
 #1. hrana
 hrana<-read.csv("2-Podatki/hrana.csv",fileEncoding = "Windows-1250")
 
-#2. vsi kontinenti
+#2. kategorija
 kategorija <- read.csv("2-Podatki/kategorija.csv",fileEncoding = "Windows-1250")
 
 #3. recept
