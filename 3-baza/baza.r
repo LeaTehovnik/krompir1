@@ -49,16 +49,19 @@ create_table <- function(){
                                          holesterol INTEGER,
                                          ogljikovi_hidrati INTEGER,
                                          enota INTEGER NOT NULL)"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON hrana TO javnost"))
     
     kategorija <- dbSendQuery(conn,build_sql("CREATE TABLE kategorija (
                                           id TEXT PRIMARY KEY NOT NULL,
                                           kategorija_hrane TEXT NOT NULL,
                                           )"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON kategorija TO javnost"))
     
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
                                             ime SERIAL PRIMARY KEY,
                                             sestavine TEXT NOT NULL,
                                             postopek)"))  #NI PRAV
+    dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
     
    
     
