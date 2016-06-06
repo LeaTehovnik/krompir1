@@ -24,7 +24,7 @@ s <- append(s, c("Por", "Maslo", "Krompir", "Mleko", "Sladka smetana", "Losos", 
 kolicina <- append(kolicina, c("1", "kos", "700g", "NA", "NA", "600g", "1,5 žličke","1 strok", "NA", "1", "NA")
                    
 # Testo za palačinke
-r <- append(r, rep("Testo za palačinke", 5))
+r <- append(r, rep("Testo za palačinke", 6))
 s <- append(s, c("Pšenična m., bela", "Sol", "Jajce", "Mleko", "Olje"))
 kolicina <- append(kolicina, c("100g", "1 ščepec", "2", "300ml", "1 žlička"))
 
