@@ -1,7 +1,7 @@
 #nova table
 
 
-ime<-c("Jajca", "Voda", "Olje", "Kvas", "Sol", "Kis, balzamični" ,"Poper", "Origano", "Rožmarin", "Maslo")
+ime<-c("Jajce", "Voda", "Olje", "Kvas", "Sol", "Kis, balzamični" ,"Poper", "Origano", "Rožmarin", "Maslo")
 kalorije<-c(143, 0, 884, 0, 0, 88, 255, 306, 131, 717)
 voda<-c(0, 100, 0, 0, 0, 76.45, 10.51, 7.16, NA, 17.94)
 beljakovine<-c(12.58, 0, 0, 0, 0, 0.49, 10.95, 11, 3.3, 3.6)

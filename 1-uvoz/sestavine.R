@@ -1,6 +1,6 @@
 # Kuhan krompir v oblicah
 r <- rep("Kuhan krompir v oblicah", 3)
-s <- c("Krompir", "olje", "sol")
+s <- c("Krompir", "Olje", "sol")
 kolicina <- c("1 kg", "20 g", "3 ščepce")
 
 #Stročji fižol s paradižniki
@@ -19,10 +19,14 @@ s <- append(s, c("Sardela", "Sol", "Pšenična m., bela", "Olje", "Limona"))
 kolicina <- append(kolicina, c("1 kg", "1 žlička", "150g", "0,5dl", "1"))
 
 # Losos s porovim pirejem
-r <- append(r, rep("Losos s porovim pirejem", 5))
+r <- append(r, rep("Losos s porovim pirejem", 11))
 s <- append(s, c("Por", "Maslo", "Krompir", "Mleko", "Sladka smetana", "Losos", "Olje", "Česen", "Rožmarin", "Limona", "Sol"))
 kolicina <- append(kolicina, c("1", "kos", "700g", "NA", "NA", "600g", "1,5 žličke","1 strok", "NA", "1", "NA")
-
+                   
+# Testo za palačinke
+r <- append(r, rep("Testo za palačinke", 5))
+s <- append(s, c("Pšenična m., bela", "Sol", "Jajce", "Mleko", "Olje"))
+kolicina <- append(kolicina, c("100g", "1 ščepec", "2", "300ml", "1 žlička"))
 
 potrebujemo <- data.frame(r, s, kolicina)
 colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")

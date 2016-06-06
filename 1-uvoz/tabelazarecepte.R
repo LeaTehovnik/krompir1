@@ -2,7 +2,8 @@ ime_recepta<-c("Kuhan krompir v oblicah",
                "Stročji fižol s paradižniki",
                "Piščančji casserole",
                "Pečene sardele",
-               "Losos s porovim pirejem")
+               "Losos s porovim pirejem",
+               "Testo za palačinke")
 
 
 
@@ -48,7 +49,27 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
             Pazimo, da se iz olja ne začne kaditi!
             Sardele položimo v ponev ter popečemo na obeh straneh, da pozlatijo.
             Pečene ribe odcedimo na papirnati brisači in pokapamo z limoninim sokom.
-            Postrežemo z različnimi prilogmami.")
+            Postrežemo z različnimi prilogmami.",
+            
+            "Por očistimo, opermo in narežemo na kolobarje, ki jih prepražimo na olju. 
+            Krompir olupimo in narežemo na majhne koščke, ki jih skuhamo v vodi. 
+            Krompir med kuhanjem posolimo. Ko je kuhan, ga dobro odcedimo. 
+            Dodamo mleko, sladko smetano in maslo ter vse skupaj dobro pretlačimo. 
+            V pretlačen krompir vmešamo por. Kose lososa posolimo in popečemo na olivnem olju.
+            Na sredini peke v ponev dodamo česnove stroke, po lososu pa potresemo malo rožmarina. 
+            Na krožnike nato serviramo pečenega lososa in porov pire. 
+            Pripravljeno jed postrežemo.",
+            
+            "V skledo stresemo moko. Dodamo ščepec soli, dobro premešamo in na sredini naredimo jamico.
+            V jamico ubijemo jajci ter prilijemo približno 50 ml mleka in eno žlico olja.
+            Sestavine v jamici pričnemo mešati z ročno metlico ali mešalnikom in med mešanjem postopoma zajemamo moko okoli jamice. 
+            Mešamo tako dolgo, da v zmes vmešamo vso moko (po potrebi prilijemo še malo mleka) 
+            ter dobimo gladko in gosto zmes brez grudic.
+            Nato med nenehnim mešanjem v tankem curku v skledo počasi vlivamo preostalo mleko. 
+            Ko prilijemo vse mleko in dobimo gladko in tekoče testo, prenehamo z mešanjem. 
+            Testo mora biti tekoče, vendar ne sme biti vodeno. Če je vodeno, dodamo še malo moke. 
+            Pripravljeno testo pred peko pustimo počivati 15 do 30 minut, da lahko škrobna zrnca v tekočini nabreknejo. 
+            Pred peko ga obvezno še enkrat dobro premešamo.")
 
 
 recepti<-data.frame(ime_recepta, postopek)
