@@ -10,6 +10,6 @@ holesterol<-c(423, 0, 0, 0, 0, 0, 0, 0, 0, 215)
 ogljikovi<-c(0.77, 0, 0, 38.2, 0, 17.03, 64.81, 64.43, 33, 0.2)
 
 ostalo<-data.frame(ime,kalorije, voda, beljakovine, mascobe, holesterol, ogljikovi)
-colnames(ostalo) <- c("Ostalo","E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (g)", "Og.H. (g)")
+colnames(ostalo) <- c("Ostalo","E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (mg)", "Og.H. (g)")
 
 
