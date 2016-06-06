@@ -1,7 +1,8 @@
 ime_recepta<-c("Kuhan krompir v oblicah",
                "Stročji fižol s paradižniki",
                "Piščančji casserole",
-               "Pečene sardele")
+               "Pečene sardele",
+               "Losos s porovim pirejem")
 
 
 

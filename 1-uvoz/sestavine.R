@@ -18,6 +18,11 @@ r <- append(r, rep("Pečene sardele", 5))
 s <- append(s, c("Sardela", "Sol", "Pšenična m., bela", "Olje", "Limona"))
 kolicina <- append(kolicina, c("1 kg", "1 žlička", "150g", "0,5dl", "1"))
 
+# Losos s porovim pirejem
+r <- append(r, rep("Losos s porovim pirejem", 5))
+s <- append(s, c("Por", "Maslo", "Krompir", "Mleko", "Sladka smetana", "Losos", "Olje", "Česen", "Rožmarin", "Limona", "Sol"))
+kolicina <- append(kolicina, c("1", "kos", "700g", "NA", "NA", "600g", "1,5 žličke","1 strok", "NA", "1", "NA")
+
 
 potrebujemo <- data.frame(r, s, kolicina)
 colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
