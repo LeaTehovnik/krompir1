@@ -5,7 +5,7 @@ library(RPostgreSQL)
 #source("2.Uvoz/Uvoz.R")
 source("1-uvoz/uvoz_tabel.R")
 #source("2-podatki/hrana.R")
-source("3-baza/auth.R")
+source("auth_public.R")
 
 # Povežemo se z gonilnikom za PostgreSQL
 drv <- dbDriver("PostgreSQL")  
@@ -61,7 +61,7 @@ create_table <- function(){
                                             id SERIAL PRIMARY KEY,
                                             ime TEXT UNIQUE,
                                             sestavine TEXT NOT NULL,
-                                            postopek)"))  #NI PRAV
+                                            postopek)"))
     
    
     
@@ -75,13 +75,13 @@ create_table <- function(){
 
 #Uvoz podatkov
 #1. hrana
-hrana<-read.csv2("2-Podatki/hrana.csv",fileEncoding = "Windows-1250", na.strings = c("sl,","–"))
+hrana<-read.csv2("2-podatki/hrana.csv",fileEncoding = "Windows-1250", na.strings = c("sl,","–"))
 
 #2. vsi kontinenti
-kategorija <- read.csv2("2-Podatki/kategorija.csv",fileEncoding = "Windows-1250")
+kategorija <- read.csv2("2-podatki/kategorija.csv",fileEncoding = "Windows-1250")
 
 #3. recept
-recept<-read.csv2("2-Podatki/recept.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
+recept<-read.csv2("2-podatki/recept.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
 
 hrana <- hrana %>% inner_join(kategorija, by = c("Kategorija" = "kategorije_hrane")) %>%
   mutate(kategorija = id) %>% select(-Kategorija, -id)
@@ -157,32 +157,37 @@ create_table <- function(){
                       user = user, password = password)
     
     #Glavne tabele
+    kategorija <- dbSendQuery(conn,build_sql("CREATE TABLE kategorija (
+                                             id SERIAL PRIMARY KEY,
+                                             ime TEXT UNIQUE NOT NULL,
+                                             kategorija_hrane TEXT NOT NULL,
+    )"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON kategorija TO javnost"))
+    
+    
     hrana <- dbSendQuery(conn,build_sql("CREATE TABLE hrana (
-                                         ime SERIAL PRIMARY KEY UNIQUE,
+                                         id SERIAL PRIMARY KEY 
+                                         ime TEXT UNIQUE,
                                          kcal INTEGER,
                                          voda INTEGER,
                                          beljakovine INTEGER,
                                          mascobe INTEGER,
                                          holesterol INTEGER,
                                          ogljikovi_hidrati INTEGER,
-                                         enota INTEGER NOT NULL)"))
+                                         kategorija INTEGER REFERENCES kategorija(id))"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON hrana TO javnost"))
     
-    kategorija <- dbSendQuery(conn,build_sql("CREATE TABLE kategorija (
-                                          id TEXT PRIMARY KEY NOT NULL,
-                                          kategorija_hrane TEXT NOT NULL,
-                                          )"))
-    dbSendQuery(conn, build_sql("GRANT SELECT ON kategorija TO javnost"))
     
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
-                                            ime SERIAL PRIMARY KEY UNIQUE,
+                                            id SERIAL PRIMARY KEY,
+                                            ime TEXT  UNIQUE NOT NULL,
                                             postopek TEXT NOT NULL)"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
     
     
     potrebujemo <- dbSendQuery(conn,build_sql("CREATE TABLE potrebujemo (
-                                            ime_recepta TEXT REFRENCES recept(ime),
-                                            sestavine TEXT REFRENCES hrana(ime),
+                                            ime_recepta INTEGER REFRENCES recept(ime),
+                                            sestavine INTEGER REFRENCES hrana(ime),
                                             kolicina INTEGER NOT NULL,
                                             PRIMARY KEY(ime_recepta, sestavine))"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
