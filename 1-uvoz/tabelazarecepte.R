@@ -3,7 +3,9 @@ ime_recepta<-c("Kuhan krompir v oblicah",
                "Piščančji casserole",
                "Pečene sardele",
                "Losos s porovim pirejem",
-               "Testo za palačinke")
+               "Testo za palačinke",
+               "Sadni lonček z jogurtom",
+               "Hrenovke s kruhom")
 
 
 
@@ -69,8 +71,17 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
             Ko prilijemo vse mleko in dobimo gladko in tekoče testo, prenehamo z mešanjem. 
             Testo mora biti tekoče, vendar ne sme biti vodeno. Če je vodeno, dodamo še malo moke. 
             Pripravljeno testo pred peko pustimo počivati 15 do 30 minut, da lahko škrobna zrnca v tekočini nabreknejo. 
-            Pred peko ga obvezno še enkrat dobro premešamo.")
+            Pred peko ga obvezno še enkrat dobro premešamo.",
+            
+            "Sadje operemo in osušimo v papirnati brisači. Sadju odstranimo peščišča oziroma koščice. 
+            Jabolka in breskve zrežemo na tanke krhlje. Jagode in grozdje narežemo na poljubno velike kose.
+            Vso sadje stresemo v večjo skledo in ga z žlico ali rokami nežno premešamo.
+            Pripravljeno sadje z žlico nadevamo v kozarce in obložimo z žlico jogurta. Vse skupaj posujemo z najljubšimi otrobi (orehi, mandlji, suhim sadjem) in serviramo.",
+            
+            "V lonec položimo hrenovki in nalijemo toliko vode, da hrenovki plavata. Ko le ta zavre, so hrenovke kuhane.
+            Vzamemo ju iz vode ter postrežemo s kečapom in kosom kruha.")
 
 
 recepti<-data.frame(ime_recepta, postopek)
 colnames(recepti) <- c("Ime recepta", "Postopek")
+

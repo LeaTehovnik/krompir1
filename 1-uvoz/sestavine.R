@@ -21,12 +21,22 @@ kolicina <- append(kolicina, c("1 kg", "1 žlička", "150g", "0,5dl", "1"))
 # Losos s porovim pirejem
 r <- append(r, rep("Losos s porovim pirejem", 11))
 s <- append(s, c("Por", "Maslo", "Krompir", "Mleko", "Sladka smetana", "Losos", "Olje", "Česen", "Rožmarin", "Limona", "Sol"))
-kolicina <- append(kolicina, c("1", "kos", "700g", "NA", "NA", "600g", "1,5 žličke","1 strok", "NA", "1", "NA")
+kolicina <- append(kolicina, c("1", "kos", "700g", "NA", "NA", "600g", "1,5 žličke","1 strok", "NA", "1", "NA"))
                    
 # Testo za palačinke
 r <- append(r, rep("Testo za palačinke", 5))
 s <- append(s, c("Pšenična m., bela", "Sol", "Jajce", "Mleko", "Olje"))
 kolicina <- append(kolicina, c("100g", "1 ščepec", "2", "300ml", "1 žlička"))
+
+# Sadni lonček z jogurtom
+r <- append(r, rep("Sadni lonček z jogurtom", 6))
+s <- append(s, c("Jabolko, celo", "Breskev", "Grozdje, crno", "Borovnice", "Orehi, suhi", "Jogurt, 3,2 % m. m."))
+kolicina <- append(kolicina, c("3", "3", "1 pest", "1 pest", "4 žlice", "6 jedrc"))
+
+#Hrenovke s kruhom
+r <- append(r, rep("Hrenovke s kruhom", 3))
+s <- append(s, c("Kruh, koruzni", "Hrenovke (gov. + svinj.)", "Paradižnik, kecap"))
+kolicina <- append(kolicina, c("200g", "2", "10g"))
 
 
 potrebujemo <- data.frame(r, s, kolicina)
