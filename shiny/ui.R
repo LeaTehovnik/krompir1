@@ -2,19 +2,19 @@ library(shiny)
 
 shinyUI(fluidPage(
   
-  titlePanel("Banka"),
+  titlePanel("HRANA"),
   
   sidebarLayout(
     sidebarPanel(
-      sliderInput("min",
-                  "Minimalni znesek transakcije:",
-                  min = -10000,
-                  max = 10000,
-                  value = 1000)
+      sliderInput("max",
+                  "Max stevilo kalorij:",
+                  min = 0,
+                  max = 900,
+                  value = 10)
     ),
     
     mainPanel(
-      tableOutput("transakcije")
+      tableOutput("hrana_kalorije")
     )
   )
 ))

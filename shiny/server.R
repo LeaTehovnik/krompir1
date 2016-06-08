@@ -11,11 +11,11 @@ shinyServer(function(input, output) {
   # Pripravimo tabelo
   tbl.hrana <- tbl(conn, "hrana")
   
-  output$transakcije <- renderTable({
+  output$hrana_kalorije <- renderTable({
     # Naredimo poizvedbo
     # x %>% f(y, ...) je ekvivalentno f(x, y, ...)
-    t <- tbl.hrana %>% filter(kcal > input$min) %>%  ##če so vsebovana jajca..???
-      arrange(voda) %>% data.frame()
+    t <- tbl.hrana %>% filter(kcal < input$max) %>%  
+      arrange(kcal) %>% data.frame()
     # Vrnemo dobljeno razpredelnico
     t
   })
