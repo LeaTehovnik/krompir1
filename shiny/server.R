@@ -14,10 +14,8 @@ shinyServer(function(input, output) {
   output$transakcije <- renderTable({
     # Naredimo poizvedbo
     # x %>% f(y, ...) je ekvivalentno f(x, y, ...)
-    t <- tbl.hrana %>% filter(znesek > input$min) %>%  ##če so vsebovana jajca..???
-      arrange(znesek) %>% data.frame()
-    # Čas izpišemo kot niz
-    t$cas <- as.character(t$cas)
+    t <- tbl.hrana %>% filter(kcal > input$min) %>%  ##če so vsebovana jajca..???
+      arrange(voda) %>% data.frame()
     # Vrnemo dobljeno razpredelnico
     t
   })

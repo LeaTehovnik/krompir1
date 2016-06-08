@@ -84,4 +84,4 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
 
 recepti<-data.frame(ime_recepta, postopek)
 colnames(recepti) <- c("Ime recepta", "Postopek")
-
+write.table(recepti,file="recept.csv",sep=";")

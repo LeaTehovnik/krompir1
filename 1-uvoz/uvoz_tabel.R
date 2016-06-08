@@ -34,7 +34,7 @@ write.table(zelenjava,file="zelenjava.csv",sep=";")
 
 
 sadje <- tables[[6]]
-sadje <- sadje[-1,]
+sadje <- sadje[-1,] %>% filter(V1 != "Slive" | V2 != 161)
 write.table(sadje,file="sadje.csv",sep=";")
 
 
@@ -65,9 +65,9 @@ hrana <- data.frame(hrana$V1,
 names(hrana) <- paste0("V", 1:7)
 hrana <- rbind(hrana, ostalo)
 #hrana$Enota <- c(rep("100g", 177))
-hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", 39),rep("pijaca", 11), rep("ostalo",14))
+hrana$Kategorija <- c(rep("mlecni izdelki", 20), rep("meso", 24), rep("ribe", 16),rep("zita", 28),rep("zelenjava", 39),rep("sadje", nrow(sadje)),rep("pijaca", 11), rep("ostalo",14))
 write.table(hrana,file="hrana.csv",sep=";")
-rownames(hrana)<-c(1:191)
+rownames(hrana)<-NULL
 colnames(hrana) <- c("Ime", "E(kCal)", "Voda(g)", "Belj. (g)", "Mas. (g)", "Hole. (mg)", "Og.H. (g)", "Kategorija")
 
 kategorije_hrane <- c("mlecni izdelki", "meso", "ribe", "zita", "zelenjava", "sadje", "pijaca", "ostalo")
