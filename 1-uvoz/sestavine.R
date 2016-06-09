@@ -41,5 +41,5 @@ kolicina <- append(kolicina, c("200g", "2", "10g"))
 
 potrebujemo <- data.frame(r, s, kolicina)
 colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
-
+write.table(potrebujemo,file="potrebujemo.csv",sep=";")
 

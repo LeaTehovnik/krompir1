@@ -115,7 +115,7 @@ insert_data <- function(){
     dbWriteTable(conn, name="kategorija",kategorija,append=T, row.names=FALSE)
     dbWriteTable(conn, name="hrana", hrana, append=T)
     dbWriteTable(conn, name="recept", recept, append=T)
-    
+    dbWriteTable(conn, name="potrebujemo", potrebujemo, append=T)
     con <- src_postgres(dbname = db, host = host,
                         user = user, password = password)
     tbl.hrana <- tbl(con, "hrana")
@@ -128,7 +128,8 @@ insert_data <- function(){
       inner_join(tbl.recept %>% select(id, ime) %>% rename(sestavina = id),
                  by = c("Ime recepta" = "ime"), copy = TRUE) %>%
       select(recept, sestavina, kolicina = Kolicina)
-    #dbWriteTable(conn, name="potrebujemo", potrebujemo, append=T)
+    
+    
     
   }, finally = {
     dbDisconnect(conn) 
