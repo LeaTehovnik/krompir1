@@ -75,7 +75,7 @@ create_table <- function(){
                                               sestavina INTEGER REFERENCES hrana(id),
                                               kolicina REAL NOT NULL,
                                               PRIMARY KEY(recept, sestavina))"))
-    dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
+    dbSendQuery(conn, build_sql("GRANT SELECT ON potrebujemo TO javnost"))
     
     ##dodati moramo še foreign key
     
@@ -98,6 +98,9 @@ kategorija <- read.csv2("2-podatki/kategorija.csv",fileEncoding = "Windows-1250"
 
 #3. recept
 recept<-read.csv2("2-podatki/recept.csv",fileEncoding = "Windows-1250",stringsAsFactors=FALSE)
+
+#4. potrebujemo
+potrebujemo <- read.csv2("2-podatki/potrebujemo.csv",fileEncoding = "Windows-1250")
 
 names(hrana) <- c("ime", "kcal", "voda", "beljakovine", "mascobe",
                   "holesterol", "ogljikovi_hidrati", "kategorija")
