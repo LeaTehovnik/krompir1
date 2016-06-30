@@ -5,7 +5,10 @@ ime_recepta<-c("Kuhan krompir v oblicah",
                "Losos s porovim pirejem",
                "Testo za palačinke",
                "Sadni lonček z jogurtom",
-               "Hrenovke s kruhom")
+               "Hrenovke s kruhom",
+               "Mešana solata z jajcem",
+               "Narastek iz ovsene kaše",
+               "Sendvič")
 
 
 
@@ -51,7 +54,7 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
             Pazimo, da se iz olja ne začne kaditi!
             Sardele položimo v ponev ter popečemo na obeh straneh, da pozlatijo.
             Pečene ribe odcedimo na papirnati brisači in pokapamo z limoninim sokom.
-            Postrežemo z različnimi prilogmami.",
+            Postrežemo z različnimi prilogami.",
             
             "Por očistimo, opermo in narežemo na kolobarje, ki jih prepražimo na olju. 
             Krompir olupimo in narežemo na majhne koščke, ki jih skuhamo v vodi. 
@@ -78,10 +81,21 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
             Vso sadje stresemo v večjo skledo in ga z žlico ali rokami nežno premešamo.
             Pripravljeno sadje z žlico nadevamo v kozarce in obložimo z žlico jogurta. Vse skupaj posujemo z najljubšimi otrobi (orehi, mandlji, suhim sadjem) in serviramo.",
             
-            "V lonec položimo hrenovki in nalijemo toliko vode, da hrenovki plavata. Ko le ta zavre, so hrenovke kuhane.
-            Vzamemo ju iz vode ter postrežemo s kečapom in kosom kruha.")
+            "V lonec položimo hrenovki in nalijemo toliko vode, da hrenovki plavata. Ko le ta zavre, so hrenovke kuhane. 
+            Vzamemo ju iz vode ter postrežemo s kečapom in kosom kruha.",
+            
+            "Zelenjavo operemo. Pristavimo posodo z vodo in vanjo položimo jajca. Kuhamo dokler ne vode ne zavre oziroma do željene
+            trdnosti jajca. Odstavimo. Medtem narežemo paradižnike in papriko. Vse skupaj zmešamo z solato in okisamo ter čez narežemo kuhana jajca.",
+            
+            "V lonec nalijemo mleko in oprano ovseno kašo, dodamo ščepec soli in  sladkor.
+            Kuhamo, dokler ni ovsena kaša kuhana. Ko odstavimo iz ognja, dodamo maslo. Pustimo, da se malo ohladi, delno zmeljemo s paličnim mešalnikom.
+            Ločimo rumenjake in beljake, iz katerih stepemo sneg. V ohlajeno ovseno kašo vmešamo rumenjake, jabolka in na koncu še sneg.
+            Maso vlijemo v pekač in damo v pečico, predhodno segreto na 180 stopinj za cca 1 uro. ",
+            
+            "Operemo solato. Na kos kruha namažemo sirni namaz in čez položimo sir. Dodamo mortadelo in solato in pokrijemo z drugim kosom kruha.
+            Naš sendvič je pripravljen.")
+cas <- c(35,20,40,20,45,15,5,10, 10, 90,5) #čas v minutah
 
-
-recepti<-data.frame(ime_recepta, postopek)
-colnames(recepti) <- c("Ime recepta", "Postopek")
+recepti<-data.frame(ime_recepta, postopek, cas)
+colnames(recepti) <- c("Ime recepta", "Postopek", "Čas priprave")
 write.table(recepti,file="recept.csv",sep=";")

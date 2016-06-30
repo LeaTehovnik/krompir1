@@ -38,6 +38,20 @@ r <- append(r, rep("Hrenovke s kruhom", 3))
 s <- append(s, c("Kruh, koruzni", "Hrenovke (gov. + svinj.)", "Paradižnik, kecap"))
 kolicina <- append(kolicina, c("800", "400", "10"))
 
+#Mešana solata z jajcem
+r <- append(r, rep("Mešana solata z jajcem", 6))
+s <- append(s, c("Jajce", "Kis, balzamicni", "Olje", "Paradižnik", "Endivija", "Paprika, rumena"))
+kolicina <- append(kolicina, c("200", "20", "20", "300", "400", "400"))
+
+#Narastek iz ovsene kaše 
+r <- append(r, rep("Narastek iz ovsene kaše", 7))
+s <- append(s, c("Jabolko, celo", "Ovseni kosmici", "Mleko, kravje, 3,2 % m. m.", "Maslo", "Sol", "Vanilin sladkor", "Jajce"))
+kolicina <- append(kolicina, c("300", "300", "20", "1000", "10", "50", "150"))
+
+#Sendvič
+r <- append(r, rep("Sendvič", 5))
+s <- append(s, c("Solata, zelena", "Mortadela", "Sir, gauda", "Sirni namaz, 20 % m. m.", "Kruh, graham"))
+kolicina <- append(kolicina, c("200", "200", "200", "100", "800"))
 
 potrebujemo <- data.frame(r, s, kolicina)
 colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
