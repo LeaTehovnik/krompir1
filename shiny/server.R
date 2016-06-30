@@ -19,5 +19,14 @@ shinyServer(function(input, output) {
     # Vrnemo dobljeno razpredelnico
     t
   })
+  ##############################################
+#   output$recepti_cas<- renderTable({
+#     # Naredimo poizvedbo
+#     # x %>% f(y, ...) je ekvivalentno f(x, y, ...)
+#     t <- tbl.recepti %>% filter(cas < input$max) %>%  
+#       arrange(cas) %>% data.frame()
+#     # Vrnemo dobljeno razpredelnico
+#     t
+#   })
   
 })

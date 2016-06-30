@@ -4,6 +4,10 @@ shinyUI(fluidPage(
   
   titlePanel("HRANA"),
   
+  tabsetPanel(
+    
+#################################
+  tabPanel("max",
   sidebarLayout(
     sidebarPanel(
       sliderInput("max",
@@ -16,5 +20,25 @@ shinyUI(fluidPage(
     mainPanel(
       tableOutput("hrana_kalorije")
     )
+    )
+  ),
+#############  
+# tabPanel("max",
+#          sidebarLayout(
+#            sidebarPanel(
+#              sliderInput("max",
+#                          "Čas priprave",
+#                          min = 0,
+#                          max = 200,
+#                          value = 5)
+#            ),
+#            
+#            mainPanel(
+#              tableOutput("hrana_kalorije") #tuki recepti_cas
+#            )
+#          )
+# ),
+#############  
+
   )
 ))
