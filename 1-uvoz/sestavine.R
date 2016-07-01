@@ -54,6 +54,6 @@ s <- append(s, c("Solata, zelena", "Mortadela", "Sir, gauda", "Sirni namaz, 20 %
 kolicina <- append(kolicina, c("200", "200", "200", "100", "800"))
 
 potrebujemo <- data.frame(r, s, kolicina)
-colnames(potrebujemo) <- c("Ime recepta", "Sestavine", "Količina")
+colnames(potrebujemo) <- c("Recept", "Sestavine", "Količina")
 write.table(potrebujemo,file="potrebujemo.csv",sep=";")
 

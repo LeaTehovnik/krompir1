@@ -41,6 +41,8 @@ create_table <- function(){
     
     dbSendQuery(conn, paste("GRANT CONNECT ON DATABASE", db,
                             "TO javnost"))
+    dbSendQuery(conn, paste("GRANT CONNECT ON DATABASE", db, "TO katarinac12"))
+    dbSendQuery(conn, paste("GRANT CONNECT ON DATABASE", db, "TO leat"))
     
     #Glavne tabele
     kategorija <- dbSendQuery(conn,build_sql("CREATE TABLE kategorija (
@@ -66,16 +68,22 @@ create_table <- function(){
     recept <- dbSendQuery(conn,build_sql("CREATE TABLE recept (
                                          id SERIAL PRIMARY KEY,
                                          ime TEXT UNIQUE NOT NULL,
-                                         postopek TEXT NOT NULL)"))
+                                         postopek TEXT NOT NULL,
+                                         cas INTEGER NOT NULL)"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON recept TO javnost"))
     
     
     potrebujemo <- dbSendQuery(conn,build_sql("CREATE TABLE potrebujemo (
-                                              recept INTEGER REFERENCES recept(id),
+                                              Recept INTEGER REFERENCES recept(id),
                                               sestavina INTEGER REFERENCES hrana(id),
                                               kolicina REAL NOT NULL,
                                               PRIMARY KEY(recept, sestavina))"))
     dbSendQuery(conn, build_sql("GRANT SELECT ON potrebujemo TO javnost"))
+    
+   dbSendQuery(conn, build_sql("GRANT ALL ON ALL TABLES IN SCHEMA public TO katarinac12"))
+   dbSendQuery(conn, build_sql("GRANT ALL ON ALL TABLES IN SCHEMA public TO leat"))
+   dbSendQuery(conn, build_sql("GRANT ALL ON ALL TABLES IN SCHEMA public TO majaf"))
+   dbSendQuery(conn, build_sql("GRANT SELECT ON ALL TABLES IN SCHEMA public TO javnost"))
     
     ##dodati moramo še foreign key
     
@@ -104,7 +112,8 @@ potrebujemo <- read.csv2("2-podatki/potrebujemo.csv",fileEncoding = "Windows-125
 
 names(hrana) <- c("ime", "kcal", "voda", "beljakovine", "mascobe",
                   "holesterol", "ogljikovi_hidrati", "kategorija")
-names(recept) <- c("ime", "postopek")
+names(recept) <- c("ime", "postopek", "cas")
+names(potrebujemo) <- c("Recept","sestavina", "kolicina")
 hrana <- inner_join(hrana, kategorija,
                     by = c("kategorija" = "kategorije_hrane")) %>%
   select(-kategorija) %>% rename(kategorija = id)
@@ -118,21 +127,22 @@ insert_data <- function(){
     dbWriteTable(conn, name="kategorija",kategorija,append=T, row.names=FALSE)
     dbWriteTable(conn, name="hrana", hrana, append=T)
     dbWriteTable(conn, name="recept", recept, append=T)
-    dbWriteTable(conn, name="potrebujemo", potrebujemo, append=T)
     con <- src_postgres(dbname = db, host = host,
                         user = user, password = password)
     tbl.hrana <- tbl(con, "hrana")
     tbl.recept <- tbl(con, "recept")
-    potrebujemo$`Ime recepta` <- as.character(potrebujemo$`Ime recepta`)
-    potrebujemo$`Sestavine` <- as.character(potrebujemo$`Sestavine`)
-    data.potrebujemo <- potrebujemo %>%
-      inner_join(tbl.hrana %>% select(id, ime) %>% rename(recept = id),
-                 by = c("Sestavine" = "ime"), copy = TRUE) %>%
-      inner_join(tbl.recept %>% select(id, ime) %>% rename(sestavina = id),
-                 by = c("Ime recepta" = "ime"), copy = TRUE) %>%
-      select(recept, sestavina, kolicina = Kolicina)
+    potrebujemo$`Recept` <- as.character(potrebujemo$`Recept`)
+    potrebujemo$`Sestavina` <- as.character(potrebujemo$`sestavina`)
+    #potrebujemo$kolicina <- as.numeric(potrebujemo$kolicina)
+    data.potrebujemo <- potrebujemo %>% select(-sestavina) %>%
+      inner_join(tbl.hrana %>% select(id, ime) %>% rename(sestavina = id),
+                 by = c("Sestavina" = "ime"), copy = TRUE) %>%
+      inner_join(tbl.recept %>% select(id, ime) %>% rename(recept = id),
+                 by = c("Recept" = "ime"), copy = TRUE) %>%
+      select(recept, sestavina, kolicina)
+    dbWriteTable(conn, name="potrebujemo", data.potrebujemo, append=T, row.names=FALSE)
     
-    
+   
     
   }, finally = {
     dbDisconnect(conn) 

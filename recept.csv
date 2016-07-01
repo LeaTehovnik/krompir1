@@ -1,8 +1,8 @@
-"Ime recepta";"Postopek"
+"Ime recepta";"Postopek";"Cas priprave"
 "1";"Kuhan krompir v oblicah";"Krompir zelo dobro operemo. Zložimo ga v vecji lonec in zalijemo s toliko vode, da je popolnoma pokrit. 
             Vodo solimo, zavremo, nato pa znižamo temperaturo in krompir v pokritem loncu kuhamo 25 minut.
             Kuhanega odcedimo in pustimo, da se nekoliko ohladi. 
-            Nato ga po vrhu prerežemo, da se odpre, in ponudimo z maslom ter soljo."
+            Nato ga po vrhu prerežemo, da se odpre, in ponudimo z maslom ter soljo.";35
 "2";"Strocji fižol s paradižniki";"Strocji fižol ocistimo (porežemo nastavke pecljev in morebitne nitke), 
             operemo in odcedimo. Po potrebi ga narežemo na krajše kose. Stresemo ga v lonec in zalijemo s toliko vode, 
             da je povsem pokrit. Vodo solimo s pol žlicke soli. Lonec pristavimo na kuhalnik in pocakamo, da voda zavre.
@@ -17,7 +17,7 @@
             Zelenjavo prelijemo z balzamicnim kisom in po okusu zacinimo s poprom in soljo. 
             Vse skupaj med mešanjem pražimo še dve minuti.
             Ponev odstavimo in po zelenjavi potresemo nasekljan peteršilj. 
-            Še enkrat dobro premešamo, serviramo na vecji krožnik in postrežemo."
+            Še enkrat dobro premešamo, serviramo na vecji krožnik in postrežemo.";20
 "3";"Pišcancji casserole";"Pristavimo lonec z vodo, ki jo zavremo in solimo.
             V krop stresemo peresnike, ki jih skuhamo po navodilih iz embalaže. 
             Brokoli operemo in zrežemo na manjše kose ter dodamo k peresnikom.
@@ -31,13 +31,13 @@
             Pripravimo ognjevarno posodo in jo dobro premažemo z maslom.
             Peresnike in brokoli dobro odcedimo in stresemo v vok.
             S kuhalnico vse skupaj še enkrat dobro premešamo, nato pa stresemo v ognjevarno posodo. 
-            Po vrhu naribamo sir in pecemo v ogreti pecici 15 minut. Serviramo kar v posodi."
+            Po vrhu naribamo sir in pecemo v ogreti pecici 15 minut. Serviramo kar v posodi.";40
 "4";"Pecene sardele";"Sardele speremo pod vodo in jih dobro osušimo s papirnatimi brisackami.
             Ribe solimo in jih povaljamo v moki, nato pripravimo ponev z olivnim oljem in ga segrejemo.
             Pazimo, da se iz olja ne zacne kaditi!
             Sardele položimo v ponev ter popecemo na obeh straneh, da pozlatijo.
             Pecene ribe odcedimo na papirnati brisaci in pokapamo z limoninim sokom.
-            Postrežemo z razlicnimi prilogmami."
+            Postrežemo z razlicnimi prilogami.";20
 "5";"Losos s porovim pirejem";"Por ocistimo, opermo in narežemo na kolobarje, ki jih prepražimo na olju. 
             Krompir olupimo in narežemo na majhne košcke, ki jih skuhamo v vodi. 
             Krompir med kuhanjem posolimo. Ko je kuhan, ga dobro odcedimo. 
@@ -45,7 +45,7 @@
             V pretlacen krompir vmešamo por. Kose lososa posolimo in popecemo na olivnem olju.
             Na sredini peke v ponev dodamo cesnove stroke, po lososu pa potresemo malo rožmarina. 
             Na krožnike nato serviramo pecenega lososa in porov pire. 
-            Pripravljeno jed postrežemo."
+            Pripravljeno jed postrežemo.";45
 "6";"Testo za palacinke";"V skledo stresemo moko. Dodamo šcepec soli, dobro premešamo in na sredini naredimo jamico.
             V jamico ubijemo jajci ter prilijemo približno 50 ml mleka in eno žlico olja.
             Sestavine v jamici pricnemo mešati z rocno metlico ali mešalnikom in med mešanjem postopoma zajemamo moko okoli jamice. 
@@ -55,10 +55,18 @@
             Ko prilijemo vse mleko in dobimo gladko in tekoce testo, prenehamo z mešanjem. 
             Testo mora biti tekoce, vendar ne sme biti vodeno. Ce je vodeno, dodamo še malo moke. 
             Pripravljeno testo pred peko pustimo pocivati 15 do 30 minut, da lahko škrobna zrnca v tekocini nabreknejo. 
-            Pred peko ga obvezno še enkrat dobro premešamo."
+            Pred peko ga obvezno še enkrat dobro premešamo.";15
 "7";"Sadni loncek z jogurtom";"Sadje operemo in osušimo v papirnati brisaci. Sadju odstranimo pešcišca oziroma košcice. 
             Jabolka in breskve zrežemo na tanke krhlje. Jagode in grozdje narežemo na poljubno velike kose.
             Vso sadje stresemo v vecjo skledo in ga z žlico ali rokami nežno premešamo.
-            Pripravljeno sadje z žlico nadevamo v kozarce in obložimo z žlico jogurta. Vse skupaj posujemo z najljubšimi otrobi (orehi, mandlji, suhim sadjem) in serviramo."
-"8";"Hrenovke s kruhom";"V lonec položimo hrenovki in nalijemo toliko vode, da hrenovki plavata. Ko le ta zavre, so hrenovke kuhane.
-            Vzamemo ju iz vode ter postrežemo s kecapom in kosom kruha."
+            Pripravljeno sadje z žlico nadevamo v kozarce in obložimo z žlico jogurta. Vse skupaj posujemo z najljubšimi otrobi (orehi, mandlji, suhim sadjem) in serviramo.";5
+"8";"Hrenovke s kruhom";"V lonec položimo hrenovki in nalijemo toliko vode, da hrenovki plavata. Ko le ta zavre, so hrenovke kuhane. 
+            Vzamemo ju iz vode ter postrežemo s kecapom in kosom kruha.";10
+"9";"Mešana solata z jajcem";"Zelenjavo operemo. Pristavimo posodo z vodo in vanjo položimo jajca. Kuhamo dokler ne vode ne zavre oziroma do željene
+            trdnosti jajca. Odstavimo. Medtem narežemo paradižnike in papriko. Vse skupaj zmešamo z solato in okisamo ter cez narežemo kuhana jajca.";10
+"10";"Narastek iz ovsene kaše";"V lonec nalijemo mleko in oprano ovseno kašo, dodamo šcepec soli in  sladkor.
+            Kuhamo, dokler ni ovsena kaša kuhana. Ko odstavimo iz ognja, dodamo maslo. Pustimo, da se malo ohladi, delno zmeljemo s palicnim mešalnikom.
+            Locimo rumenjake in beljake, iz katerih stepemo sneg. V ohlajeno ovseno kašo vmešamo rumenjake, jabolka in na koncu še sneg.
+            Maso vlijemo v pekac in damo v pecico, predhodno segreto na 180 stopinj za cca 1 uro. ";90
+"11";"Sendvic";"Operemo solato. Na kos kruha namažemo sirni namaz in cez položimo sir. Dodamo mortadelo in solato in pokrijemo z drugim kosom kruha.
+            Naš sendvic je pripravljen.";5

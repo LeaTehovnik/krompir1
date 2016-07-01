@@ -96,6 +96,6 @@ postopek<-c("Krompir zelo dobro operemo. Zložimo ga v večji lonec in zalijemo 
             Naš sendvič je pripravljen.")
 cas <- c(35,20,40,20,45,15,5,10, 10, 90,5) #čas v minutah
 
-recepti<-data.frame(ime_recepta, postopek, cas)
-colnames(recepti) <- c("Ime recepta", "Postopek", "Čas priprave")
-write.table(recepti,file="recept.csv",sep=";")
+recept<-data.frame(ime_recepta, postopek, cas)
+colnames(recept) <- c("Ime recepta", "Postopek", "Čas priprave")
+write.table(recept,file="recept.csv",sep=";")
