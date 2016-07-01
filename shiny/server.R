@@ -41,7 +41,7 @@ shinyServer(function(input, output) {
 
   output$recept_kalorije <- renderTable({
     t <- inner_join(tbl.potrebujemo, tbl.hrana, by = c("sestavina" = "id")) %>%
-      group_by(recept) %>% summarise(kcal = sum(kolicina*kcal/100)) %>% filter(kcal < input$maks) %>%
+      group_by(recept) %>% summarise(kcal = sum(kolicina*kcal/400)) %>% filter(kcal < input$maks) %>%
       inner_join(tbl.recept, by = c("recept" = "id")) %>% select(-recept) %>% data.frame()
     validate(need(nrow(t) > 0, "Noben recept ne ustreza pogojem!"))
     Encoding(t$ime) <- "UTF-8"
@@ -49,7 +49,14 @@ shinyServer(function(input, output) {
     t
   })
   
-
+########################
+  #prikaz recepta
+  
+  output$value <- renderPrint({ 
+    t <- recept$postopek %>% filter(recept$ime == input$select)
+    
+    t
+  })
   
 ############################################################
   

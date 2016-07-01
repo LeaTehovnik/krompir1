@@ -18,12 +18,13 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
+      
       tableOutput("hrana_kalorije")
     )
     )
   ),
 #############  
-tabPanel("Maksimalen čas priprave",
+tabPanel("Maksimalen cas priprave",
          sidebarLayout(
            sidebarPanel(
              sliderInput("max_cas",
@@ -39,7 +40,7 @@ tabPanel("Maksimalen čas priprave",
          )
 ),
 ####################
-tabPanel("Maximalno število kalorij v receptu",
+tabPanel("Maximalno stevilo kalorij v receptu",
          sidebarLayout(
            sidebarPanel(
              sliderInput("maks",
@@ -53,6 +54,16 @@ tabPanel("Maximalno število kalorij v receptu",
              tableOutput("recept_kalorije")
            )
          )
+),
+####################
+tabPanel("Prikaz recepta",
+         selectInput("select", label = h3("Izberi recept"), 
+                     choices = recept$ime, 
+                     selected = 1),
+         
+         hr() ,
+         fluidRow(column(3, verbatimTextOutput("value")))
+         
 )
 ##########################################
 # Define UI for dataset viewer application
