@@ -51,12 +51,12 @@ shinyServer(function(input, output) {
   
 ########################
   #prikaz recepta
-  
-  output$value <- renderPrint({ 
-    t <- recept$postopek %>% filter(recept$ime == input$select)
-    
-    t
-  })
+#   
+#   output$value <- renderPrint({ 
+#     t <- recept$postopek %>% filter(recept$ime == input$select)
+#     
+#     t
+#   })
   
 ############################################################
   
