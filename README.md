@@ -5,10 +5,11 @@ repozitorij pri predmetu OPB...Lea Tehovnik, Katarina Černe, Maja Furlan
 
 
 Kaj bo aplikacija dejansko počela (npr.) :
-* iskanje recepta z največ zelenjave/beljakovinami...
+* maksimalno število kalorij v receptu
 * iskanje najmanj kaloričnega recepta
 * iskanje sadja, ki ima manj kot 50 kcal
-* 3 najbolj kalorične hrane razvrščene od najbolj navzdol...
+* maksimalen čas priprave
+* najmanj kalorična hrana
 * ipd..
 
 Source:
